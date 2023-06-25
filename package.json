@@ -9,9 +9,10 @@
     "prereq": "rimraf ./cdk.out && npm run update-packages",
     "bootstrap": "npm run prereq && env-cmd -f .env cdk bootstrap",
     "deploy": "npm run prereq && env-cmd -f .env cdk deploy BackendNuworksExamStack-dev",
+    "destroy": "npm run prereq && env-cmd -f .env cdk destroy BackendNuworksExamStack-dev",
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
+    "test": "jest --verbose --runInBand --testMatch '**/*.test.ts'",
     "cdk": "cdk"
   },
   "devDependencies": {
@@ -21,8 +22,11 @@
     "@types/prettier": "2.6.0",
     "aws-cdk": "2.27.0",
     "jest": "^27.5.1",
-    "ts-jest": "^27.1.4",
+    "mockingoose": "^2.16.2",
+    "mongodb-memory-server": "^8.13.0",
+    "ts-jest": "^27.1.5",
     "ts-node": "^10.7.0",
+    "tsconfig-paths-jest": "^0.0.1",
     "typescript": "~3.9.7"
   },
   "dependencies": {

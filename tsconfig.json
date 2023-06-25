@@ -19,12 +19,13 @@
     "inlineSources": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
+    "isolatedModules": false,
     "typeRoots": [
       "./node_modules/@types"
     ],
     "baseUrl": ".",
     "paths": {
-      "/opt/*": ["./src/layers/nodeLibs/*"],
+      "/opt/*": ["./src/layers/nodeLibs/*"]
     }
   },
   "exclude": [
