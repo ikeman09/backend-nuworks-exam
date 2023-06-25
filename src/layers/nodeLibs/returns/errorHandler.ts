@@ -11,6 +11,13 @@ export interface IResponse {
 
 export type Overrides = Partial<Omit<IResponse, 'body'>>;
 
+const JSONHeader = {
+  'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type',
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'OPTIONS,POST,GET,DELETE,PUT',
+  'Content-Type': 'application/json',
+};
+
 /**
  * Parent class that extends the Error type to create custom errors.
  */
@@ -99,34 +106,10 @@ enum ERROR_MESSAGES {
   //--- Unknown Error
   UnknownError = 'An unknown error has occurred',
 
-  //--- Auth Errors
-  MissingTokenError = 'There is no token sent',
-  UnauthorizedActionError = 'You are not authorized to do this action',
-  UnauthorizedStationActionError = 'You are not authorized to do this action for this station',
-
-  //--- for Dealers
-  DealerNotFound = 'Dealer not found',
-  DealerAlreadyExists = 'Dealer Already Exists',
-
-  //--- for Prices
-  PriceNotFound = 'Price entry is not found',
-  EffectivityDateOneHourDifference = 'Effectivity date must be at least 1 hour from current date and time',
-  MoreThanOneFuturePrice = 'Only one(1) future-dated price update is allowed. Please delete the existing one if you wish to update the prices.',
-
-  //--- for Vouchers
-  VoucherDoesNotExist = 'Voucher does not exist',
-  VoucherAlreadyRedeemed = 'Voucher is already redeemed',
-  VoucherAlreadyExpired = 'Voucher is already expired',
-  LockIsStillOpen = 'Price Lock status is still open. It cannot be deleted',
-
-  //--- for Stations
-  UserAlreadyHaveALock = 'User already has a lock for this station',
-  StationDoesNotExist = 'Station does not exist',
-  StationHasNoCurrentPrices = 'Station has no current prices',
-
-  //-- for Points
-  PointTypeError = 'Point type is not valid',
-  UserNotFound = 'User not found',
+  //--- Item Errors
+  TodoNotFound = 'Todo not found',
+  TodoIdMissing = 'Todo ID is missing',
+  TodoTitleMissing = 'Todo title is missing',
 }
 
 module.exports = {
