@@ -21,7 +21,11 @@
     "strictPropertyInitialization": false,
     "typeRoots": [
       "./node_modules/@types"
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "/opt/*": ["./src/layers/nodeLibs/*"],
+    }
   },
   "exclude": [
     "node_modules",
